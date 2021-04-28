@@ -11,8 +11,7 @@ export class Game {
     let score = 0;
     let firstInFrame = 0;
     for (let frame = 0; frame < 10; frame++) {
-      //strike
-      if (this._rolls[firstInFrame] == 10) {
+      if (this.isStrike(firstInFrame)) {
         score +=
           10 + this._rolls[firstInFrame + 1] + this._rolls[firstInFrame + 2];
         firstInFrame++;
@@ -27,6 +26,10 @@ export class Game {
       }
     }
     return score;
+  }
+
+  private isStrike(firstInFrame: number) {
+    return this._rolls[firstInFrame] == 10;
   }
 
   private isSpare(firstInFrame: number) {
