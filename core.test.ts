@@ -17,7 +17,7 @@ describe("Bowling Game", () => {
     expect(g.score()).toEqual(20);
   });
 
-  it.skip("rolls and do one spare", () => {
+  it("rolls and do one spare", () => {
     g.roll(5);
     g.roll(5); // spare
     g.roll(3);
