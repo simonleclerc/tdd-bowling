@@ -9,15 +9,15 @@ export class Game {
 
   public score() {
     let score = 0;
-    let i = 0;
+    let firstInFrame = 0;
     for (let frame = 0; frame < 10; frame++) {
       //spare
-      if ((this._rolls[i] ?? 0) + (this._rolls[i + 1] ?? 0) == 10) {
-        score += 10 + this._rolls[i + 2] ?? 0;
-        i += 2;
+      if ((this._rolls[firstInFrame] ?? 0) + (this._rolls[firstInFrame + 1] ?? 0) == 10) {
+        score += 10 + this._rolls[firstInFrame + 2] ?? 0;
+        firstInFrame += 2;
       } else {
-        score += (this._rolls[i] ?? 0) + (this._rolls[i + 1] ?? 0);
-        i += 2;
+        score += (this._rolls[firstInFrame] ?? 0) + (this._rolls[firstInFrame + 1] ?? 0);
+        firstInFrame += 2;
       }
     }
     return score;
