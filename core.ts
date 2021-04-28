@@ -1,11 +1,17 @@
 export class Game {
-  private _score = 0;
+  private _totalPossibleRolls = 21;
+  private _rolls: number[] = [];
+  private currentRoll = 0;
 
   public roll(pins: number) {
-    this._score += pins;
+    this._rolls[this.currentRoll++] = pins;
   }
 
   public score() {
-    return this._score;
+    let score = 0
+    for (let i = 0; i < this._totalPossibleRolls; i++) {
+      score += this._rolls[i] ?? 0;
+    }
+    return score;
   }
 }
