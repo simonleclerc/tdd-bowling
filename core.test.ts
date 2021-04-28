@@ -1,5 +1,5 @@
-describe("Nothing", () => {
-  it("does nothing", () => {
-    expect(true).toBe(true);
+describe("Bowling Game", () => {
+  it("can create game", () => {
+    const g = new Game();
   });
 });
