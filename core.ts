@@ -11,8 +11,14 @@ export class Game {
     let score = 0;
     let i = 0;
     for (let frame = 0; frame < 10; frame++) {
-      score += (this._rolls[i] ?? 0) + (this._rolls[i + 1] ?? 0);
-      i += 2;
+      //spare
+      if ((this._rolls[i] ?? 0) + (this._rolls[i + 1] ?? 0) == 10) {
+        score += 10 + this._rolls[i + 2] ?? 0;
+        i += 2;
+      } else {
+        score += (this._rolls[i] ?? 0) + (this._rolls[i + 1] ?? 0);
+        i += 2;
+      }
     }
     return score;
   }
