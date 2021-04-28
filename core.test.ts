@@ -18,13 +18,17 @@ describe("Bowling Game", () => {
   });
 
   it("rolls and do one spare", () => {
-    g.roll(5);
-    g.roll(5); // spare
+    rollSpare();
     g.roll(3);
     rollMany(17, 0);
 
     expect(g.score()).toEqual(16);
   });
+
+  const rollSpare = () => {
+    g.roll(5);
+    g.roll(5);
+  }
 
   const rollMany = (n: number, pins: number) => {
     for (let i = 0; i < n; i++) {
