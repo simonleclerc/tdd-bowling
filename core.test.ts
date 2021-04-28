@@ -25,10 +25,19 @@ describe("Bowling Game", () => {
     expect(g.score()).toEqual(16);
   });
 
+  it("rolls and do one strike", () => {
+    g.roll(10); //strike
+    g.roll(3);
+    g.roll(4);
+    rollMany(16, 0);
+
+    expect(g.score()).toEqual(24);
+  });
+
   const rollSpare = () => {
     g.roll(5);
     g.roll(5);
-  }
+  };
 
   const rollMany = (n: number, pins: number) => {
     for (let i = 0; i < n; i++) {
