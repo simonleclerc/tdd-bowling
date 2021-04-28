@@ -8,9 +8,11 @@ export class Game {
   }
 
   public score() {
-    let score = 0
-    for (let i = 0; i < this._totalPossibleRolls; i++) {
-      score += this._rolls[i] ?? 0;
+    let score = 0;
+    let i = 0;
+    for (let frame = 0; frame < 10; frame++) {
+      score += (this._rolls[i] ?? 0) + (this._rolls[i + 1] ?? 0);
+      i += 2;
     }
     return score;
   }
