@@ -1,7 +1,11 @@
 export class Game {
-  public roll(pins: number) {}
+  private _score = 0;
+
+  public roll(pins: number) {
+    this._score += pins;
+  }
 
   public score() {
-    return 0;
+    return this._score;
   }
 }
