@@ -7,10 +7,6 @@ describe("Bowling Game", () => {
     g = new Game();
   });
 
-  it("can roll", () => {
-    g.roll(0);
-  });
-
   it("rolls only in the gutter", () => {
     rollMany(20, 0);
     expect(g.score()).toEqual(0);
