@@ -12,17 +12,29 @@ export class Game {
     for (let frame = 0; frame < 10; frame++) {
       if (this.isStrike(firstInFrame)) {
         score +=
-          10 + this._rolls[firstInFrame + 1] + this._rolls[firstInFrame + 2];
+          10 + this.nextTwoBallsForStrike(firstInFrame);
         firstInFrame++;
       } else if (this.isSpare(firstInFrame)) {
-        score += 10 + this._rolls[firstInFrame + 2];
+        score += 10 + this.nextBallForSpare(firstInFrame);
         firstInFrame += 2;
       } else {
-        score += this._rolls[firstInFrame] + this._rolls[firstInFrame + 1];
+        score += this.twoBallsInFrame(firstInFrame);
         firstInFrame += 2;
       }
     }
     return score;
+  }
+
+  private twoBallsInFrame(firstInFrame: number) {
+    return this._rolls[firstInFrame] + this._rolls[firstInFrame + 1];
+  }
+
+  private nextBallForSpare(firstInFrame: number) {
+    return this._rolls[firstInFrame + 2];
+  }
+
+  private nextTwoBallsForStrike(firstInFrame: number) {
+    return this._rolls[firstInFrame + 1] + this._rolls[firstInFrame + 2];
   }
 
   private isStrike(firstInFrame: number) {
