@@ -1,5 +1,4 @@
 export class Game {
-  private _totalPossibleRolls = 21;
   private _rolls: number[] = [];
   private currentRoll = 0;
 
@@ -16,12 +15,10 @@ export class Game {
           10 + this._rolls[firstInFrame + 1] + this._rolls[firstInFrame + 2];
         firstInFrame++;
       } else if (this.isSpare(firstInFrame)) {
-        score += 10 + this._rolls[firstInFrame + 2] ?? 0;
+        score += 10 + this._rolls[firstInFrame + 2];
         firstInFrame += 2;
       } else {
-        score +=
-          (this._rolls[firstInFrame] ?? 0) +
-          (this._rolls[firstInFrame + 1] ?? 0);
+        score += this._rolls[firstInFrame] + this._rolls[firstInFrame + 1];
         firstInFrame += 2;
       }
     }
@@ -33,9 +30,6 @@ export class Game {
   }
 
   private isSpare(firstInFrame: number) {
-    return (
-      (this._rolls[firstInFrame] ?? 0) + (this._rolls[firstInFrame + 1] ?? 0) ==
-      10
-    );
+    return this._rolls[firstInFrame] + this._rolls[firstInFrame + 1] == 10;
   }
 }
