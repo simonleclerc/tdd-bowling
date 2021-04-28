@@ -18,4 +18,12 @@ describe("Bowling Game", () => {
 
     expect(g.score()).toEqual(0);
   });
+
+  it("rolls each time over 1 pin only", () => {
+    for (let i = 0; i < 20; i++) {
+      g.roll(1);
+    }
+
+    expect(g.score()).toEqual(20);
+  })
 });
